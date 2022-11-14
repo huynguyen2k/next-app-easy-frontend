@@ -1,6 +1,34 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import type { AppProps } from 'next/app';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { createEmotionCache } from '@/utils';
+import { lightThemeOptions } from '@/styles/theme';
+
+interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
 }
+
+const clientSideEmotionCache = createEmotionCache();
+
+const lightTheme = createTheme(lightThemeOptions);
+
+const MyApp: React.FunctionComponent<MyAppProps> = props => {
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
+  return (
+    <CacheProvider value={emotionCache}>
+      <ThemeProvider theme={lightTheme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </CacheProvider>
+  );
+};
+
+export default MyApp;
