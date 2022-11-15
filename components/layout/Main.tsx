@@ -1,7 +1,6 @@
 import { LayoutProps } from '@/pages/_app';
 import { Box, Stack } from '@mui/material';
-import { Footer } from '../common';
-import Header from '../common/Header';
+import { Footer, Header } from '../common';
 
 export function MainLayout({ children }: LayoutProps) {
   return (
