@@ -5,9 +5,14 @@ export const lightThemeOptions: ThemeOptions = {
     mode: 'light',
     primary: {
       main: '#FF6464',
+      contrastText: '#FFFFFF',
     },
     secondary: {
+      light: '#EDF7FA',
       main: '#00A8CC',
+    },
+    text: {
+      primary: '#21243D',
     },
   },
   typography: {
