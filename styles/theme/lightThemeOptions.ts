@@ -14,6 +14,11 @@ export const lightThemeOptions: ThemeOptions = {
     text: {
       primary: '#21243D',
     },
+    grey: {
+      '800': '#8695A4',
+      '900': '#142850',
+    },
+    divider: '#E0E0E0',
   },
   typography: {
     fontFamily: ['Heebo', 'sans-serif'].join(','),
