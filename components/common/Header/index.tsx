@@ -1,12 +1,3 @@
-import * as React from 'react';
-import HeaderDesktop from './HeaderDesktop';
-import HeaderMobile from './HeaderMobile';
-
-export function Header() {
-  return (
-    <>
-      <HeaderDesktop />
-      <HeaderMobile />
-    </>
-  );
-}
+export * from './Header';
+export * from './HeaderDesktop';
+export * from './HeaderMobile';

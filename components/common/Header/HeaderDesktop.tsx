@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { routes } from '@/constants';
 import { useRouter } from 'next/router';
 
-export default function HeaderDesktop() {
+export function HeaderDesktop() {
   const { pathname } = useRouter();
 
   return (
