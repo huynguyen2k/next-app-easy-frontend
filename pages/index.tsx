@@ -1,3 +1,4 @@
+import { MetaTags } from '@/components/common';
 import { HeroSection, RecentPosts } from '@/components/home';
 import { MainLayout } from '@/components/layout';
 import { FeaturedWorks } from '@/components/work';
@@ -78,6 +79,13 @@ const workList: Work[] = [
 export default function Home() {
   return (
     <Box>
+      <MetaTags
+        title="NextJS Tutorial | Easy Frontend"
+        description="Step by step tutorials to build a full CRUD website using NextJS for beginners"
+        url=""
+        image="https://images.unsplash.com/photo-1536152470836-b943b246224c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+      />
+
       <HeroSection />
       <RecentPosts data={postList} />
       <FeaturedWorks data={workList} />
