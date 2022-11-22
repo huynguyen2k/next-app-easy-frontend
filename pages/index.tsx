@@ -12,7 +12,7 @@ const postList: Post[] = [
     created: '12 Feb 2020',
     topics: ['Design', 'Pattern'],
     desc: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
-    author: '',
+    slug: '',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const postList: Post[] = [
     created: '12 Feb 2020',
     topics: ['Design', 'Pattern'],
     desc: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
-    author: '',
+    slug: '',
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const postList: Post[] = [
     created: '12 Feb 2020',
     topics: ['Design', 'Pattern'],
     desc: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
-    author: '',
+    slug: '',
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const postList: Post[] = [
     created: '12 Feb 2020',
     topics: ['Design', 'Pattern'],
     desc: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
-    author: '',
+    slug: '',
   },
 ];
 
