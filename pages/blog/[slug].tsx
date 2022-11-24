@@ -13,6 +13,8 @@ export default function BlogDetailPage({ data }: BlogDetailPageProps) {
       <h1>{data.title}</h1>
       <h3>{data.author?.name}</h3>
       <p>{data.desc}</p>
+
+      <div dangerouslySetInnerHTML={{ __html: data.htmlContent ?? '' }} />
     </div>
   );
 }
