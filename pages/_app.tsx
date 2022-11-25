@@ -1,5 +1,4 @@
 import '../styles/globals.css';
-import '../styles/prism.css';
 import { EmptyLayout } from '@/components/layout';
 import { lightThemeOptions } from '@/styles/theme';
 import { createEmotionCache } from '@/utils';

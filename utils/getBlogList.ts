@@ -11,7 +11,7 @@ import rehypeStringify from 'rehype-stringify';
 import remarkToc from 'remark-toc';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import remarkPrism from 'remark-prism';
+import rehypePrism from '@mapbox/rehype-prism';
 
 const BLOGS_FOLDER = path.join(process.cwd(), 'blogs');
 
@@ -28,11 +28,11 @@ export const getBlogList = async () => {
     const htmlFile = await unified()
       .use(remarkParse)
       .use(remarkToc, { heading: 'Nội dung bài viết' })
-      .use(remarkPrism)
       .use(remarkRehype)
       .use(rehypeDocument, { title: 'This is title' })
       .use(rehypeSlug)
       .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
+      .use(rehypePrism, { ignoreMissing: true })
       .use(rehypeFormat)
       .use(rehypeStringify)
       .process(content);
