@@ -1,6 +1,7 @@
 import { Post } from '@/models';
 import { getBlogList } from '@/utils';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
+import Script from 'next/script';
 import * as React from 'react';
 
 export interface BlogDetailPageProps {
@@ -14,7 +15,9 @@ export default function BlogDetailPage({ data }: BlogDetailPageProps) {
       <h3>{data.author?.name}</h3>
       <p>{data.desc}</p>
 
-      <div dangerouslySetInnerHTML={{ __html: data.htmlContent ?? '' }} />
+      <div dangerouslySetInnerHTML={{ __html: data.htmlContent ?? '' }} className="line-numbers" />
+
+      <Script src="/prism.js" strategy="afterInteractive" />
     </div>
   );
 }
