@@ -1,6 +1,7 @@
+import { MetaTags } from '@/components/common';
 import { Post } from '@/models';
 import { getBlogList } from '@/utils';
-import { Container } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { useEffect } from 'react';
 
@@ -23,9 +24,18 @@ export default function BlogDetailPage({ data }: BlogDetailPageProps) {
   }, []);
 
   return (
-    <Container maxWidth="md">
-      <div className="line-numbers" dangerouslySetInnerHTML={{ __html: data.htmlContent ?? '' }} />
-    </Container>
+    <Box>
+      <MetaTags
+        title={data.title}
+        description={data.desc ?? ''}
+        url={`${process.env.BASE_URL}/blog/${data.slug}`}
+        image={process.env.BLOG_DETAIL_THUMBNAIL ?? ''}
+      />
+
+      <Container maxWidth="md">
+        <div className="line-numbers" dangerouslySetInnerHTML={{ __html: data.htmlContent ?? '' }} />
+      </Container>
+    </Box>
   );
 }
 
