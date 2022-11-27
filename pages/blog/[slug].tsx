@@ -1,24 +1,31 @@
 import { Post } from '@/models';
 import { getBlogList } from '@/utils';
+import { Container } from '@mui/material';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
-import Script from 'next/script';
-import * as React from 'react';
+import { useEffect } from 'react';
 
 export interface BlogDetailPageProps {
   data: Post;
 }
 
 export default function BlogDetailPage({ data }: BlogDetailPageProps) {
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = '/prism.js';
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div>
-      <h1>{data.title}</h1>
-      <h3>{data.author?.name}</h3>
-      <p>{data.desc}</p>
-
-      <div dangerouslySetInnerHTML={{ __html: data.htmlContent ?? '' }} className="line-numbers" />
-
-      <Script src="/prism.js" strategy="afterInteractive" />
-    </div>
+    <Container maxWidth="md">
+      <div className="line-numbers" dangerouslySetInnerHTML={{ __html: data.htmlContent ?? '' }} />
+    </Container>
   );
 }
 
