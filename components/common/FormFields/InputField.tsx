@@ -8,17 +8,20 @@ export type InputFieldProps = {
 
 export function InputField(props: InputFieldProps) {
   const { name, control, ...textFieldProps } = props;
-  const { field, fieldState } = useController({ name, control });
+  const {
+    field: { ref, ...field },
+    fieldState,
+  } = useController({ name, control });
 
   return (
     <TextField
       fullWidth
       margin="dense"
-      inputRef={field.ref}
+      {...textFieldProps}
+      {...field}
+      inputRef={ref}
       error={!!fieldState.error}
       helperText={fieldState.error?.message}
-      {...field}
-      {...textFieldProps}
     />
   );
 }
