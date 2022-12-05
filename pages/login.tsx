@@ -7,6 +7,10 @@ export interface LoginPageProps {}
 
 export default function LoginPage(props: LoginPageProps) {
   const handleLoginFormSubmit = async (data: LoginPayload) => {
+    await new Promise((resolve, reject) => {
+      setTimeout(resolve, 2000);
+    });
+
     console.log('data: ', data);
   };
 

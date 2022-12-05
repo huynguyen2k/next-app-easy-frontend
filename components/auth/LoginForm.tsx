@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Typography } from '@mui/material';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -29,9 +29,9 @@ export function LoginForm(props: LoginFormProps) {
     resolver: yupResolver(schema),
   });
 
-  const handleSubmit = (data: LoginPayload) => {
+  const handleSubmit = async (data: LoginPayload) => {
     if (onSubmit) {
-      onSubmit(data);
+      await onSubmit(data);
     }
   };
 
@@ -50,7 +50,15 @@ export function LoginForm(props: LoginFormProps) {
       <PasswordField control={form.control} name="password" label="Password" placeholder="Enter your password" />
 
       <Box sx={{ mt: '16px' }}>
-        <Button fullWidth type="submit" variant="contained" color="primary" size="large">
+        <Button
+          fullWidth
+          type="submit"
+          variant="contained"
+          color="primary"
+          size="large"
+          disabled={form.formState.isSubmitting}
+        >
+          {form.formState.isSubmitting && <CircularProgress size={20} sx={{ mr: '8px' }} />}
           Login
         </Button>
       </Box>
